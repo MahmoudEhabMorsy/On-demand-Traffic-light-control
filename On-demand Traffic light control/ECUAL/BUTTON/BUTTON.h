@@ -11,7 +11,7 @@
 #include "../../Utilities/std_types.h"
 #include "../../MCAL/DIO/DIO.h"
 #include "../../Utilities/registers.h"
-#include <avr/interrupt.h>
+#include "../../Utilities/interrupts.h"
 /*******************************************************************************
  *                                Definitions                                  *
  *******************************************************************************/

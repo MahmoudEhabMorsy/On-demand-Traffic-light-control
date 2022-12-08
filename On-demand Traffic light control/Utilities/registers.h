@@ -50,12 +50,12 @@
 //****************************
 #define TCCR1A (*(volatile uint8*)(0x4F))
 #define TCCR1B (*(volatile uint8*)(0x4E))
-#define OCR1A (*(volatile uint16*)(0x4B))
-#define OCR1AL  (*(volatile uint8*)(0x4B))
-#define OCR1AH  (*(volatile uint8*)(0x4A))
-#define TCNT1 (*(volatile uint16*)(0x4D))
-#define TCNT1L  (*(volatile uint8*)(0x4D))
-#define TCNT1H  (*(volatile uint8*)(0x4C))
+#define OCR1A     (*(volatile uint16*)0x4A)
+#define OCR1AL    (*(volatile uint8*)0x4A)
+#define OCR1AH      (*(volatile uint8*)0x4B)
+#define TCNT1       (*(volatile uint16*)0x4C)
+#define TCNT1L    (*(volatile uint8*)0x4C)
+#define TCNT1H    (*(volatile uint8*)0x4D)
 #define TIMSK (*(volatile uint8*)(0x59))
 #define TOIE1				2
 #define OCIE1A				4

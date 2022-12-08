@@ -16,7 +16,7 @@ static volatile void (*g_callBackPtr)(void) = NULL_PTR;
  *                                ISRs                                  *
  *******************************************************************************/
 
-ISR(TIMER1_COMPA_vect){
+ISR(TIMER1_OCA_vect){
 	
 	if (g_callBackPtr != NULL_PTR) {
 		(*g_callBackPtr)();

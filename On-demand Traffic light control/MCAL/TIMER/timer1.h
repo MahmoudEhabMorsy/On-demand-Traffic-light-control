@@ -9,7 +9,7 @@
 #define TIMER1_H_
 #include "../../Utilities/std_types.h"
 #include "../../Utilities/registers.h"
-#include <avr/interrupt.h>
+#include "../../Utilities/interrupts.h"
 #define TIMER1_INITIAL_VALUE 0
 #define TIMER1_OCRA_VALUE 1000
 
