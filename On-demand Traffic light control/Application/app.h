@@ -10,10 +10,10 @@
 #define APP_H_
 #include "../ECUAL/BUTTON/BUTTON.h"
 #include "../ECUAL/LED/LED.h"
-#include "../MCAL/TIMER/timer1.h"
 #include "../Utilities/registers.h"
-#include "../../Utilities/interrupts.h"
 #include <util/delay.h>
+
+extern g_msecond;
 
 /*******************************************************************************
  *                         Types Declaration                                   *
@@ -39,11 +39,9 @@ void APP_init(void);
  *
  */
 void APP_start(void);
-/*call back function to calculate time in mili seconds on every interrupt by timer1*/
-void msecondPassed(void) ;
-/*function to delay time using timer1*/
-void wait(uint16 time);
+
+
+
 /*call back function for the external interrupt (button) changes the mode of operation to pedestrian and eliminate any wait loops by the timer*/
 void BUTTON_pressed(void);
-
 #endif /* APP_H_ */

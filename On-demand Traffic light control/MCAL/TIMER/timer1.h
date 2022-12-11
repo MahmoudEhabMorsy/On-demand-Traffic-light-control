@@ -9,7 +9,7 @@
 #define TIMER1_H_
 #include "../../Utilities/std_types.h"
 #include "../../Utilities/registers.h"
-#include "../../Utilities/interrupts.h"
+#include "../INTERRUPTS/interrupts.h"
 #define TIMER1_INITIAL_VALUE 0
 #define TIMER1_OCRA_VALUE 1000
 
@@ -30,12 +30,6 @@ typedef enum{
 	F_TIMER1_EXTERNAL_FALLING,
 	F_TIMER1_EXTERNAL_RISING
 } Timer1_Prescaler;
-typedef struct {
-	uint16 initial_value;
-	uint16 compare_value; /*used in compare mode only*/
-	Timer1_Prescaler prescaler;
-	Timer1_Mode mode;
-} Timer1_ConfigType;
 typedef enum {
 	TIMER1_OK,TIMER1_FAILED
 	}EN_timer1Error;
@@ -46,10 +40,9 @@ typedef enum {
 /*
  * Description :
  * initiate Timer1
- * Inputs:a struct containing {mode of the timer, compare value, initial value , prescaler}
  *
  */
-EN_timer1Error Timer1_init(const Timer1_ConfigType *Config_Ptr);
+EN_timer1Error Timer1_init(void);
 /*
  * Description :
  * de-initiate timer1
@@ -60,5 +53,7 @@ EN_timer1Error Timer1_deInit(void);
  * a function to store the address of callback function in a pointer
  */
 EN_timer1Error Timer1_setCallBack(void (*a_ptr)(void));
+
+
 
 #endif /* TIMER1_H_ */

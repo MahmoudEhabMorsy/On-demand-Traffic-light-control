@@ -8,6 +8,10 @@
 
 #ifndef INTERRUPTS_H_
 #define INTERRUPTS_H_
+#include "../../Utilities/registers.h"
+
+/*function to enable interrupts*/
+void interrupt_init(void);
 
 
 /* External Interrupt Request 0 */

@@ -10,6 +10,8 @@
 #define LED_H_
 #include "../../Utilities/std_types.h"
 #include "../../MCAL/DIO/DIO.h"
+#include "../../MCAL/TIMER/timer1.h"
+#include "../../MCAL/INTERRUPTS/interrupts.h"
 /*******************************************************************************
  *                                Definitions                                  *
  *******************************************************************************/
@@ -52,5 +54,12 @@ EN_ledError LED_on(uint8 port_id,uint8 pin_id);
  */
 EN_ledError LED_off(uint8 port_id,uint8 pin_id);
 
+/*call back function to calculate time in mili seconds on every interrupt by timer1*/
+void msecondPassed(void) ;
+
+/*function to delay time using timer1*/
+void wait(uint16 time);
+/*function to initialize wait function and timer*/
+void wait_init(void);
 
 #endif /* LED_H_ */

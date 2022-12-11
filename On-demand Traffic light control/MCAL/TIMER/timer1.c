@@ -31,19 +31,15 @@ ISR(TIMER1_OCA_vect){
 /*
  * Description :
  * initiate Timer1
- * Inputs:a struct containing {mode of the timer, compare value, initial value , prescaler}
  *
  */
-EN_timer1Error Timer1_init(const Timer1_ConfigType *Config_Ptr) {
-	if ((Config_Ptr->mode) == 0) {
-		TCCR1A = (Config_Ptr->mode);
-	} else {
-		TCCR1B = ((Config_Ptr->mode) << 3);
-		OCR1A = Config_Ptr->compare_value;
+EN_timer1Error Timer1_init(void) {
+		TCCR1B = (COMPARE_OCR << 3);
+		OCR1A = TIMER1_OCRA_VALUE;
 		TIMSK = (1 << OCIE1A);
-	}
-	TCCR1B |= (Config_Ptr->prescaler);
-	TCNT1 = Config_Ptr->initial_value;
+	
+	TCCR1B |= F_CPU_CLOCK;
+	TCNT1 = TIMER1_INITIAL_VALUE;
 	TIMSK |= (1 << TOIE1);
 	return TIMER1_OK;
 }
